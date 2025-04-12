@@ -90,4 +90,15 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
+
+        const nextConfig = {
+  output: 'export',
+  basePath: process.env.NEXT_PUBLIC_BASE_PATH || '',
+  images: {
+    unoptimized: true,
+  },
+};
+
+export default nextConfig;
+
         uses: actions/deploy-pages@v4
