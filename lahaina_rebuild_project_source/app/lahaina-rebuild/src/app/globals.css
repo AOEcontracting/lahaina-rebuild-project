@@ -1,0 +1,163 @@
+/* Enhanced styles for improved aesthetics */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+:root {
+  --primary: #3b82f6;
+  --primary-hover: #2563eb;
+  --secondary: #10b981;
+  --accent: #8b5cf6;
+  --background: #ffffff;
+  --foreground: #1f2937;
+  --card: #ffffff;
+  --card-foreground: #1f2937;
+  --border: #e5e7eb;
+  --input: #e5e7eb;
+  --ring: #3b82f6;
+  --radius: 0.5rem;
+}
+
+.dark {
+  --primary: #3b82f6;
+  --primary-hover: #60a5fa;
+  --secondary: #10b981;
+  --accent: #8b5cf6;
+  --background: #1f2937;
+  --foreground: #f9fafb;
+  --card: #111827;
+  --card-foreground: #f9fafb;
+  --border: #374151;
+  --input: #374151;
+  --ring: #3b82f6;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+/* Enhanced animations */
+.fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.slide-in {
+  animation: slideIn 0.5s ease-in-out;
+}
+
+@keyframes slideIn {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* Enhanced card styles */
+.card {
+  @apply rounded-lg border border-border bg-card text-card-foreground shadow-sm transition-all duration-200;
+}
+
+.card:hover {
+  @apply shadow-md;
+}
+
+/* Enhanced button styles */
+.btn-primary {
+  @apply bg-primary text-white hover:bg-primary-hover transition-colors duration-200 rounded-md px-4 py-2 font-medium;
+}
+
+.btn-secondary {
+  @apply bg-secondary text-white hover:bg-opacity-90 transition-colors duration-200 rounded-md px-4 py-2 font-medium;
+}
+
+.btn-outline {
+  @apply border border-input bg-background hover:bg-accent hover:text-white hover:border-accent transition-colors duration-200 rounded-md px-4 py-2 font-medium;
+}
+
+/* Enhanced navigation */
+.nav-link {
+  @apply relative px-3 py-2 text-sm font-medium transition-colors duration-200;
+}
+
+.nav-link::after {
+  content: '';
+  @apply absolute left-0 bottom-0 w-0 h-0.5 bg-primary transition-all duration-200;
+}
+
+.nav-link:hover::after {
+  @apply w-full;
+}
+
+.nav-link.active::after {
+  @apply w-full;
+}
+
+/* Enhanced form elements */
+.form-input {
+  @apply flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50;
+}
+
+.form-label {
+  @apply text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70;
+}
+
+/* Hero section enhancements */
+.hero {
+  @apply relative overflow-hidden bg-gradient-to-r from-blue-600 to-indigo-700 text-white;
+}
+
+.hero-content {
+  @apply relative z-10 py-16 md:py-24 px-4;
+}
+
+.hero-pattern {
+  @apply absolute inset-0 z-0 opacity-10;
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* Feature section enhancements */
+.feature-card {
+  @apply p-6 rounded-lg border border-border bg-card text-card-foreground shadow-sm transition-all duration-200 hover:shadow-md hover:border-primary hover:border-opacity-50;
+}
+
+.feature-icon {
+  @apply w-12 h-12 rounded-full bg-primary bg-opacity-10 text-primary flex items-center justify-center mb-4;
+}
+
+/* Testimonial section enhancements */
+.testimonial {
+  @apply p-6 rounded-lg border border-border bg-card text-card-foreground shadow-sm;
+}
+
+.testimonial-quote {
+  @apply text-4xl text-primary opacity-20 absolute -top-2 -left-2;
+}
+
+/* Footer enhancements */
+.footer {
+  @apply bg-gray-800 text-gray-300 py-12;
+}
+
+.footer-heading {
+  @apply text-lg font-medium mb-4 text-white;
+}
+
+.footer-link {
+  @apply hover:text-white transition-colors duration-200;
+}
+
+/* Responsive improvements */
+@media (max-width: 640px) {
+  .container {
+    @apply px-4;
+  }
+}
